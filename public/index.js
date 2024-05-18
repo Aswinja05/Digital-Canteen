@@ -165,19 +165,18 @@ let name
 let email
 
 function checkout() {
-    // var name = prompt('Enter your name', '');
-    // var email = prompt('Enter your email id', '');
     if (login_flag == 0) {
         login()
     }
     else {
         let orderId = Math.floor(Math.random() * (999 - 100 + 1) + 100);
+
+        // cartData.push({"delivered": "no"})
         cartData.push({ "email": email })
-
-
         cartData.push({ "orderId": orderId })
-
         cartData.push({ "name": name })
+
+        
         console.log(cartData)
 
 

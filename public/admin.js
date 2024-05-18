@@ -73,9 +73,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     let emailId
 
                     for (i = 0; i < ordersData.length; i++) {
-                        if (ordersData[i][2].orderId == orderId) {
+                        if (ordersData[i][ordersData[i].length-2].orderId == orderId) {
                             console.log("orderId found")
-                            emailId = ordersData[i][1].email
+                            emailId = ordersData[i][ordersData[i].length-3].email
+                            console.log("New_____",emailId)
                             console.log(JSON.parse(JSON.stringify({ emailId })).emailId)
                             break
                         }
@@ -159,7 +160,9 @@ video.addEventListener('loadedmetadata', function () {
 
                 for (i = 0; i < ordersData.length; i++) {
                    
-                    if (parseInt(ordersData[i][2].orderId) == parseInt(code.data)) {
+                    if (parseInt(ordersData[i][ordersData[i].length-2].orderId) == parseInt(code.data)) {
+                        // ordersData[i][2].delivered="yes"
+                        //console.log("New----",ordersData[i][])
                         console.log("orderId qr found")
                         let node = document.getElementsByClassName("node-list")
                         console.log(node.length)
