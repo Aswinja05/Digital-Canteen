@@ -8,12 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
         fetch('http://localhost:3000/admin/cart-data')
             .then(response => response.json("fetched successfully"))
             .then(data => {
-
-
                 displayCartData(data, data.length);
-
-
-
             })
             .catch(error => {
                 console.error('Error:', error)
@@ -27,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function displayCartData(data, len) {
 
         let i
-        // if ((data[0].name != prev[0].name) || (data[0].quantity != prev[0].quantity)) {
+       
         if ((data[0].name != prev[0].name) || (data[0].quantity != prev[0].quantity)) {
 
             console.log("Ordered by ", data[len - 1].name)
@@ -175,7 +170,7 @@ video.addEventListener('loadedmetadata', function () {
                             console.log((node[i].getElementsByTagName('span')[1].innerText) == code.data)
                             if ((node[i].getElementsByTagName('span')[1].innerText) == code.data) {
                                 node[i].style.backgroundColor = "red"
-                                node[i].style.scale = "1.2"
+                                // node[i].style.scale = "1.2"
                                 // node[i].remove()
                                 setTimeout(() => {
                                     node[i].remove()

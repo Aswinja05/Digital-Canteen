@@ -1,4 +1,9 @@
 import { foodItem } from './fooditem.js'
+import { Details } from '../details.js'
+
+
+console.log(Details)
+
 let login_flag = 0
 function displayItems() {
     var biryani = document.getElementById('biryani');
@@ -51,7 +56,7 @@ function displayItems() {
 displayItems();
 
 const vegData = [...new Map(foodItem.map(item => [item['category'], item])).values()];
-console.log(vegData);
+
 
 
 document.querySelectorAll('.add-to-cart').forEach(item => {
@@ -159,14 +164,13 @@ function cartItems() {
 let name
 let email
 
-let custname = [];
 function checkout() {
     // var name = prompt('Enter your name', '');
     // var email = prompt('Enter your email id', '');
-    if (login_flag ==0) {
+    if (login_flag == 0) {
         login()
     }
-    else{
+    else {
         let orderId = Math.floor(Math.random() * (999 - 100 + 1) + 100);
         cartData.push({ "email": email })
 
@@ -199,7 +203,7 @@ function checkout() {
         // alert("Checked out succesfully....Your order has been recorded")
         // cartData=[];
     }
-    if(login_flag==1){
+    if (login_flag == 1) {
         location.reload()
     }
 }
@@ -334,27 +338,25 @@ function addEvents() {
 
 document.getElementById('login').addEventListener('click', login);
 document.getElementsByClassName('m-login')[0].addEventListener('click', login);
-if(login_flag==1){
-    document.getElementsByClassName("m-login").style.display="none"
+if (login_flag == 1) {
+    document.getElementsByClassName("m-login").style.display = "none"
 }
-// document.getElementById('m-add-address').addEventListener('click', login);
 
-var ExcelToJSON = function() {
-    this.parseExcel = function(file) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            var data = e.target.result;
-            var workbook = XLSX.read(data, { type: 'binary' });
 
-            workbook.SheetNames.forEach(function(sheetName) {
-                var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
-                console.log(XL_row_object)
-            })
-        }
+
+function register() {
+    let reg_name = prompt("Enter your name(As in id card)")
+    let reg_email = prompt("Enter your Email id")
+    let reg_id_no = prompt("Enter your Id card Number")
+    let reg_obj = {
+        id_no: reg_id_no,
+        name: reg_name,
+        email: reg_email
     }
+    Details.push(reg_obj)
+    console.log(Details)
 }
-
-
+document.getElementById("reg_btn").addEventListener('click',register)
 
 
 function login() {
@@ -365,13 +367,13 @@ function login() {
     const login_cont = document.getElementsByClassName("login_cont");
     login_cont[0].style.display = "block";
 
-    let stream; // Declare the stream variable outside the getUserMedia promise
+    let stream;
 
     navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
         .then(function (streamObj) {
-            stream = streamObj; // Assign the stream to the variable
+            stream = streamObj
             video.srcObject = stream;
-            video.play(); // Make sure the video starts playing
+            video.play();
         })
         .catch(function (error) {
             console.error('Error accessing camera:', error);
@@ -392,7 +394,7 @@ function login() {
             target: video,
         },
         decoder: {
-            readers: ["code_128_reader"], // Specify the barcode formats you want to scan
+            readers: ["code_128_reader"],
         },
     }, (err) => {
         if (err) {
@@ -400,7 +402,7 @@ function login() {
         }
         Quagga.start()
     })
-    // Listen for barcode detection
+
     Quagga.onDetected((result) => {
         console.log('Detected barcode:', result.codeResult.code);
         document.getElementsByClassName('result')[0].textContent = result.codeResult.code;
@@ -409,12 +411,14 @@ function login() {
         const isMatch = pattern.test(idno);
         if (isMatch) {
             alert("Log-in Successfull")
-            login_flag=1
+            login_flag = 1
 
-            //code to find email and name from .csv
-            //name=
-            //email=
-            document.getElementsByClassName("m-login")[0].style.display="none"
+            const selectedObject = Details.find(obj => obj.id_no === idno);
+            email = selectedObject.email
+            name = selectedObject.name
+            console.log(email + "-----" + name)
+
+            document.getElementsByClassName("m-login")[0].style.display = "none"
             login_cont[0].style.display = "none";
             if (stream) {
                 stream.getTracks().forEach(function (track) {
@@ -424,7 +428,7 @@ function login() {
         }
 
     });
-    document.getElementsByClassName('result')[0].innerText = 'No QR Code Detected';
+    document.getElementsByClassName('result')[0].innerText = 'No BarCode Detected';
 
 }
 
