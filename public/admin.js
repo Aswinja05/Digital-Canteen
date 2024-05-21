@@ -22,8 +22,9 @@ document.addEventListener('DOMContentLoaded', function () {
     function displayCartData(data, len) {
 
         let i
-       
+    //    console.log(data)
         if ((data[0].name != prev[0].name) || (data[0].quantity != prev[0].quantity)) {
+        // if (data[len-2].orderId!=prev[len-2].orderId) {
 
             console.log("Ordered by ", data[len - 1].name)
             const node = document.createElement("div");
@@ -42,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
             node.appendChild(document.createElement('br'));
 
 
-            for (i = 0; i < len - 1; i++) {
+            for (i = 0; i <= len - 1; i++) {
                 if (data[i].quantity != undefined) {
                     textnode = document.createTextNode(`${JSON.stringify(data[i].name, null, 2)}_____${JSON.stringify(data[i].quantity, null, 2)}`);
 
@@ -161,12 +162,12 @@ video.addEventListener('loadedmetadata', function () {
                 for (i = 0; i < ordersData.length; i++) {
                    
                     if (parseInt(ordersData[i][ordersData[i].length-2].orderId) == parseInt(code.data)) {
-                        // ordersData[i][2].delivered="yes"
-                        //console.log("New----",ordersData[i][])
+                        ordersData[i][ordersData[i].length-4].delivered="yes"
+                        console.log("New----",ordersData[i][ordersData[i].length-4])
                         console.log("orderId qr found")
                         let node = document.getElementsByClassName("node-list")
                         console.log(node.length)
-                        for (i = 0; i < node.length; i++) {
+                        for (let i = 0; i < node.length; i++) {
                             console.log((node[i].getElementsByTagName('span')[1].innerText))
                             console.log(code.data)
                            
@@ -177,7 +178,7 @@ video.addEventListener('loadedmetadata', function () {
                                 // node[i].remove()
                                 setTimeout(() => {
                                     node[i].remove()
-                                }, 2000);
+                                }, 10000,i);
                                 console.log("Color changed")
                             }
                         }

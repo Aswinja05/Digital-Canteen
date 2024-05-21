@@ -9,6 +9,7 @@ const Details = [
         name: 'Akash P Gowda',
         email: 'aswinja05@gmail.com'
     }
+    
 ]
 
 export { Details };
