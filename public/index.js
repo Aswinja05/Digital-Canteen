@@ -7,7 +7,7 @@ import { Details } from '../details.js'
 console.log(Details)
 
 
-let login_flag = 0
+
 
 function displayItems() {
     var biryani = document.getElementById('biryani');
