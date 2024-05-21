@@ -104,14 +104,6 @@ const foodItem = [
         quantity: 1
     },
     {
-        id: 14,
-        name: 'Gulab jamoon',
-        category: 'biryani',
-        price: 50,
-        img: 'https://www.cookwithnabeela.com/wp-content/uploads/2023/03/GulabJamun2--500x500.webp',
-        quantity: 1
-    },
-    {
         id: 15,
         name: 'Lemon rice',
         category: 'biryani',
