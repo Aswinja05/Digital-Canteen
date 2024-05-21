@@ -433,9 +433,9 @@ function login() {
         const idno = result.codeResult.code
         const isMatch = pattern.test(idno);
         if (isMatch) {
-            alert("Log-in Successfull")
+            // alert("Log-in Successfull")
 
-            //Openpoppup();
+            Openpoppup();
             login_flag=1
 
             login_flag = 1
