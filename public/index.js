@@ -1,10 +1,14 @@
 import { foodItem } from './fooditem.js'
+let login_flag = 0;
+
 import { Details } from '../details.js'
 
 
 console.log(Details)
 
+
 let login_flag = 0
+
 function displayItems() {
     var biryani = document.getElementById('biryani');
 
@@ -77,7 +81,8 @@ function Openpoppup1() {
     poppup1.classList.add("poppup-show");
 }
 function Closepoppup1() {
-    poppup1.classList.add("poppup-show");
+    poppup1.classList.remove("poppup-show");
+    location.reload();
 }
 
 
@@ -218,10 +223,12 @@ function checkout() {
         // alert("Checked out succesfully....Your order has been recorded")
         // cartData=[];
     }
-    if (login_flag == 1) {
-        location.reload()
-        //Openpoppup1();
+    if(login_flag==1){
+        Openpoppup1();
     }
+    // if (login_flag == 1) {
+    //     location.reload();
+    // }
 }
 
 
@@ -433,6 +440,10 @@ function login() {
         const idno = result.codeResult.code
         const isMatch = pattern.test(idno);
         if (isMatch) {
+            //alert("Log-in Successfull")
+            Openpoppup();
+            login_flag=1
+            login_flag = 1
             // alert("Log-in Successfull")
 
             Openpoppup();
