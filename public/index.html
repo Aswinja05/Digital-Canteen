@@ -1,109 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover">
-    <title>Food Website</title>
-    <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,viewport-fit=cover"
+    />
+    <title>CMRIT Canteen</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="poppup" id="popup" onclick="Openpoppup()">
+      <img src="tick.png" alt="tick" />
+      <h2>Login Successful</h2>
+      <p>You have been successfully logged in using your library id</p>
+      <button type="submit" onclick="Closepoppup()">Close</button>
+    </div>
+    <div class="poppup-ch" id="popup-ch" onclick="Openpoppup1()">
+      <img src="tick.png" alt="tick" />
+      <h2>Checkout Successful</h2>
+      <p>
+        Your order is successfully placed and will be notified via mail once
+        your order is ready
+      </p>
+      <button type="button" onclick="Closepoppup1()">OK</button>
+    </div>
     <div class="login_cont">
-        <span id="close">X</span>
+      <span id="close">X</span>
       <div>
         <p id="scan_text">Scan Your ID Card</p>
         <video id="l_video" autoplay></video>
+<<<<<<< HEAD
+        <p>
+          No Account?<b
+            ><a href="https://forms.gle/TEsXdwS4wfYt5F1dA">Register</a></b
+          >
+        </p>
+=======
         <p>No Account?<b><a id="reg_btn">Register</a></b></p>
+>>>>>>> ASWIN/main
         <p class="result"></p>
-     </div>
+      </div>
     </div>
     <!-- desktop view -->
     <div class="container" id="container">
-        
-
-        <div id="food-container">
+      <div id="food-container">
         <div id="header">
-            <h1>CMRIT's DIGITAL CANTEEN</h1>
-            
-            <div class="util">
-                <i class="fa  your-address" id="login"> Login</i>
-                                   
-               <i class="fa fa-cart-plus" id="cart-plus"> 0 Items</i>
-            </div>
-        </div>
-        <div id="food-items" class="d-food-items">
-            <div id="biryani" class="d-biryani">
-                <p id="category-name">Biryani</p>    
-            </div>
-        </div>
-        <div id="cart-page" class="cart-toggle">
-            <p id="cart-title">Cart Items</p>
-            <p id="m-total-amount">Total Amout : 100</p>
-            <table>
-                <thead>
-                    <td>Item</td>
-                    <td>Name</td>
-                    <td>Quantity</td>
-                    <td>Price</td>
-                </thead>
-                <tbody id="table-body">
-                    
-                </tbody>
-            </table>
+          <h1>CMRIT's DIGITAL CANTEEN</h1>
+
+          <div class="util">
+            <i class="fa your-address" id="login"> Login</i>
+
+            <i class="fa fa-cart-plus" id="cart-plus"> 0 Items</i>
           </div>
         </div>
-       
+        <div id="food-items" class="d-food-items">
+          <div id="biryani" class="d-biryani">
+            <p id="category-name">Biryani</p>
+          </div>
+        </div>
+        <div id="cart-page" class="cart-toggle">
+          <p id="cart-title">Cart Items</p>
+          <p id="m-total-amount">Total Amout : 100</p>
+          <table>
+            <thead>
+              <td>Item</td>
+              <td>Name</td>
+              <td>Quantity</td>
+              <td>Price</td>
+            </thead>
+            <tbody id="table-body"></tbody>
+          </table>
+        </div>
+      </div>
 
-    
-        <div id="category-list">
-            
+      <div id="category-list"></div>
+      <div id="checkout" class="cart-toggle">
+        <p id="total-item"></p>
+        <p id="total-price"></p>
+
+        <div class="checkoutbtn">
+          <button class="cart-btn">Checkout</button>
         </div>
-        <div id="checkout" class="cart-toggle">
-            <p id="total-item"></p>
-            <p id="total-price"></p>
-            
-            <div class="checkoutbtn"><button class="cart-btn">Checkout</button></div>
-        </div>
+      </div>
     </div>
-
-
 
     <!-- mobile view -->
     <div id="mobile-view" class="mobile-view">
-        <button class="m-login">Login</button>
+      <button class="m-login">Login</button>
 
-       
-        <div class="mobile-top">
-            <div class="top-menu">
-                <h1>CMRIT's DIGITAL CANTEEN</h1>
-                
-                <i class="fa fa-cart-plus" id="m-cart-plus"> 0</i>
-            </div>
+      <div class="mobile-top">
+        <div class="top-menu">
+          <h1>DIGITAL CANTEEN</h1>
+
+          <i class="fa fa-cart-plus" id="m-cart-plus"> 0</i>
         </div>
-        
-        <div class="item-container">
-            <div class="category-header" id="category-header">  
-            </div>
+      </div>
 
-            <div id="food-items" class="food-items">
-                
-                <div id="biryani" class="m-biryani">
-                    <p id="category-name">Biryani</p>    
-                </div>
-            </div>         
-          
-            <div class="mob_checkoutbtn"><button class="cart-btn">Checkout</button></div>
-           
-           
+      <div class="item-container">
+        <div class="category-header" id="category-header"></div>
+
+        <div id="food-items" class="food-items">
+          <div id="biryani" class="m-biryani">
+            <p id="category-name">Biryani</p>
+          </div>
         </div>
 
-        
+        <div class="mob_checkoutbtn">
+          <button type="button" class="cart-btn">Checkout</button>
+        </div>
+      </div>
     </div>
-</body>
-<script src="./index.js" type="module"></script>
-<script src="https://cdn.jsdelivr.net/npm/@ericblade/quagga2/dist/quagga.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
+  </body>
+  <script src="./index.js" type="module"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@ericblade/quagga2/dist/quagga.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
 </html>
