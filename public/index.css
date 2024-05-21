@@ -1008,5 +1008,5 @@ body {
 
 #video {
     width: 7%;
-    display: none;
+    display: block;
 }

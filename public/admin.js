@@ -8,12 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
         fetch('http://localhost:3000/admin/cart-data')
             .then(response => response.json("fetched successfully"))
             .then(data => {
-
-
                 displayCartData(data, data.length);
-
-
-
             })
             .catch(error => {
                 console.error('Error:', error)
@@ -27,8 +22,9 @@ document.addEventListener('DOMContentLoaded', function () {
     function displayCartData(data, len) {
 
         let i
-        // if ((data[0].name != prev[0].name) || (data[0].quantity != prev[0].quantity)) {
+    //    console.log(data)
         if ((data[0].name != prev[0].name) || (data[0].quantity != prev[0].quantity)) {
+        // if (data[len-2].orderId!=prev[len-2].orderId) {
 
             console.log("Ordered by ", data[len - 1].name)
             const node = document.createElement("div");
@@ -47,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
             node.appendChild(document.createElement('br'));
 
 
-            for (i = 0; i < len - 1; i++) {
+            for (i = 0; i <= len - 1; i++) {
                 if (data[i].quantity != undefined) {
                     textnode = document.createTextNode(`${JSON.stringify(data[i].name, null, 2)}_____${JSON.stringify(data[i].quantity, null, 2)}`);
 
@@ -78,9 +74,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     let emailId
 
                     for (i = 0; i < ordersData.length; i++) {
-                        if (ordersData[i][2].orderId == orderId) {
+                        if (ordersData[i][ordersData[i].length-2].orderId == orderId) {
                             console.log("orderId found")
-                            emailId = ordersData[i][1].email
+                            emailId = ordersData[i][ordersData[i].length-3].email
+                            console.log("New_____",emailId)
                             console.log(JSON.parse(JSON.stringify({ emailId })).emailId)
                             break
                         }
@@ -164,22 +161,24 @@ video.addEventListener('loadedmetadata', function () {
 
                 for (i = 0; i < ordersData.length; i++) {
                    
-                    if (parseInt(ordersData[i][2].orderId) == parseInt(code.data)) {
+                    if (parseInt(ordersData[i][ordersData[i].length-2].orderId) == parseInt(code.data)) {
+                        ordersData[i][ordersData[i].length-4].delivered="yes"
+                        console.log("New----",ordersData[i][ordersData[i].length-4])
                         console.log("orderId qr found")
                         let node = document.getElementsByClassName("node-list")
                         console.log(node.length)
-                        for (i = 0; i < node.length; i++) {
+                        for (let i = 0; i < node.length; i++) {
                             console.log((node[i].getElementsByTagName('span')[1].innerText))
                             console.log(code.data)
                            
                             console.log((node[i].getElementsByTagName('span')[1].innerText) == code.data)
                             if ((node[i].getElementsByTagName('span')[1].innerText) == code.data) {
                                 node[i].style.backgroundColor = "red"
-                                node[i].style.scale = "1.2"
+                                // node[i].style.scale = "1.2"
                                 // node[i].remove()
                                 setTimeout(() => {
                                     node[i].remove()
-                                }, 2000);
+                                }, 10000,i);
                                 console.log("Color changed")
                             }
                         }
