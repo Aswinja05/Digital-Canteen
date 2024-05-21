@@ -69,7 +69,7 @@ const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
         user: 'aswinja05@gmail.com',
-        pass: 'rqid fpii ptkt iyrl',
+        pass: 'awkr wknl ylxm skvj',
     },
 });
 app.post('/send-email', async (req, res) => {
