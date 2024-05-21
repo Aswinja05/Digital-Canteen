@@ -1,14 +1,10 @@
 import { foodItem } from './fooditem.js'
-<<<<<<< HEAD
 let login_flag = 0;
-=======
 import { Details } from '../details.js'
 
 
 console.log(Details)
 
-let login_flag = 0
->>>>>>> ASWIN/main
 function displayItems() {
     var biryani = document.getElementById('biryani');
 
@@ -81,7 +77,8 @@ function Openpoppup1() {
     poppup1.classList.add("poppup-show");
 }
 function Closepoppup1() {
-    poppup1.classList.add("poppup-show");
+    poppup1.classList.remove("poppup-show");
+    location.reload();
 }
 
 
@@ -222,10 +219,12 @@ function checkout() {
         // alert("Checked out succesfully....Your order has been recorded")
         // cartData=[];
     }
-    if (login_flag == 1) {
-        location.reload()
-        //Openpoppup1();
+    if(login_flag==1){
+        Openpoppup1();
     }
+    // if (login_flag == 1) {
+    //     location.reload();
+    // }
 }
 
 
@@ -359,14 +358,14 @@ function addEvents() {
 
 document.getElementById('login').addEventListener('click', login);
 document.getElementsByClassName('m-login')[0].addEventListener('click', login);
-<<<<<<< HEAD
+
 if(login_flag==1){
     Openpoppup();
     document.getElementsByClassName("m-login").style.display="none"
-=======
+}
 if (login_flag == 1) {
     document.getElementsByClassName("m-login").style.display = "none"
->>>>>>> ASWIN/main
+
 }
 
 
@@ -437,13 +436,10 @@ function login() {
         const idno = result.codeResult.code
         const isMatch = pattern.test(idno);
         if (isMatch) {
-            alert("Log-in Successfull")
-<<<<<<< HEAD
-            //Openpoppup();
+            //alert("Log-in Successfull")
+            Openpoppup();
             login_flag=1
-=======
             login_flag = 1
->>>>>>> ASWIN/main
 
             const selectedObject = Details.find(obj => obj.id_no === idno);
             email = selectedObject.email

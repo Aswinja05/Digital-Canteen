@@ -162,7 +162,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    padding: 0 30px 30px;
+    padding: 0 20px 30px;
     color: #333;
     z-index: 99;
     visibility: hidden;
@@ -176,7 +176,7 @@ body {
     margin: auto;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
     margin-top: -50px;
-    transition: 1s all ease-out;
+    /* transition: 0.1s all ease-out; */
 }
 
 .poppup h2,
@@ -203,7 +203,7 @@ body {
     border-radius: 4px;
     cursor: pointer;
     margin-top: -2px;
-    transition: 0.3s all ease-in-out;
+    /* transition: 0.3s all ease-in-out; */
 }
 
 .poppup button:hover,
