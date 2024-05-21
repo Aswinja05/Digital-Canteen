@@ -1,5 +1,5 @@
 import { foodItem } from './fooditem.js'
-let login_flag = 0
+let login_flag = 0;
 function displayItems() {
     var biryani = document.getElementById('biryani');
 
@@ -57,6 +57,23 @@ console.log(vegData);
 document.querySelectorAll('.add-to-cart').forEach(item => {
     item.addEventListener('click', addToCart)
 })
+
+let poppup = document.getElementById("popup");
+let poppup1 = document.getElementById('popup-ch');
+poppup.addEventListener('click', Closepoppup);
+poppup1.addEventListener('click', Closepoppup1);
+function Openpoppup() {
+    poppup.classList.add("poppup-show");
+}
+function Closepoppup() {
+    poppup.classList.remove("poppup-show");
+}
+function Openpoppup1() {
+    poppup1.classList.add("poppup-show");
+}
+function Closepoppup1() {
+    poppup1.classList.add("poppup-show");
+}
 
 
 var cartData = [];
@@ -155,7 +172,6 @@ function cartItems() {
 }
 
 
-
 let name
 let email
 
@@ -201,8 +217,11 @@ function checkout() {
     }
     if(login_flag==1){
         location.reload()
+        //Openpoppup1();
     }
 }
+
+
 
 let checkoutbtn = document.getElementsByClassName('checkoutbtn');
 let mob_checkoutbtn = document.getElementsByClassName('mob_checkoutbtn');
@@ -210,9 +229,6 @@ let mob_checkoutbtn = document.getElementsByClassName('mob_checkoutbtn');
 
 checkoutbtn[0].addEventListener('click', checkout);
 mob_checkoutbtn[0].addEventListener('click', checkout);
-
-
-
 
 
 
@@ -246,7 +262,7 @@ function decrementItem() {
         if (cartData.length < 1 && flag) {
             document.getElementById('food-items').classList.toggle('food-items');
             document.getElementById('category-list').classList.toggle('food-items');
-            document.getElementById('m-cart-plus').classList.toggle('m-cart-toggle')
+            document.getElementById('m-cart-plus').classList.toggle('m-cart-toggle');
             document.getElementById('cart-page').classList.toggle('cart-toggle');
             document.getElementById('category-header').classList.toggle('toggle-category');
             document.getElementById('checkout').classList.toggle('cart-toggle');
@@ -271,6 +287,7 @@ function totalAmount() {
 
 document.getElementById('cart-plus').addEventListener('click', cartToggle);
 document.getElementById('m-cart-plus').addEventListener('click', cartToggle);
+//document.getElementById('more').addEventListener('click', cartToggle);
 
 var flag = false;
 function cartToggle() {
@@ -281,6 +298,7 @@ function cartToggle() {
         document.getElementById('m-cart-plus').classList.toggle('m-cart-toggle')
         document.getElementById('cart-page').classList.toggle('cart-toggle');
         document.getElementById('checkout').classList.toggle('cart-toggle');
+        //document.getElementById('more').classList.toggle('m-cart-toggle');
         document.getElementsByClassName('mob_checkoutbtn')[0].style.display = "block";
         flag = true;
         console.log(flag)
@@ -335,6 +353,7 @@ function addEvents() {
 document.getElementById('login').addEventListener('click', login);
 document.getElementsByClassName('m-login')[0].addEventListener('click', login);
 if(login_flag==1){
+    Openpoppup();
     document.getElementsByClassName("m-login").style.display="none"
 }
 // document.getElementById('m-add-address').addEventListener('click', login);
@@ -409,6 +428,7 @@ function login() {
         const isMatch = pattern.test(idno);
         if (isMatch) {
             alert("Log-in Successfull")
+            //Openpoppup();
             login_flag=1
 
             //code to find email and name from .csv
@@ -421,6 +441,7 @@ function login() {
                     track.stop();
                 });
             }
+
         }
 
     });
@@ -431,7 +452,3 @@ function login() {
 
 // const isMatch = pattern.test(inputString);
 // console.log("Test:",isMatch); // true or false
-
-
-
-
