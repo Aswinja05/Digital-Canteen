@@ -1,17 +1,14 @@
 import { foodItem } from './fooditem.js'
-<<<<<<< HEAD
 let login_flag = 0;
-=======
->>>>>>> ASWIN/main
+
 import { Details } from '../details.js'
 
 
 console.log(Details)
 
-<<<<<<< HEAD
-=======
+
 let login_flag = 0
->>>>>>> ASWIN/main
+
 function displayItems() {
     var biryani = document.getElementById('biryani');
 
@@ -443,12 +440,10 @@ function login() {
         const idno = result.codeResult.code
         const isMatch = pattern.test(idno);
         if (isMatch) {
-<<<<<<< HEAD
             //alert("Log-in Successfull")
             Openpoppup();
             login_flag=1
             login_flag = 1
-=======
             // alert("Log-in Successfull")
 
             Openpoppup();
@@ -456,7 +451,6 @@ function login() {
 
             login_flag = 1
 
->>>>>>> ASWIN/main
 
             const selectedObject = Details.find(obj => obj.id_no === idno);
             email = selectedObject.email
