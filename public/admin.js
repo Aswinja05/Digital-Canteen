@@ -173,9 +173,9 @@ video.addEventListener('loadedmetadata', function () {
                            
                             console.log((node[i].getElementsByTagName('span')[1].innerText) == code.data)
                             if ((node[i].getElementsByTagName('span')[1].innerText) == code.data) {
-                                node[i].style.backgroundColor = "red"
+                                node[i].style.backgroundColor = "crimson"
                                 node[i].style.color = "white"
-
+                                node[i].getElementsByTagName('span')[0].style.color="wheat"
                                 // node[i].style.scale = "1.2"
                                 // node[i].remove()
                                 setTimeout(() => {
