@@ -6,15 +6,16 @@ A web-based platform built to streamline food ordering and reduce overcrowding i
 Setup Instructions
 
 1. Clone the Repository
+```bash
 git clone https://github.com/your-username/digital-canteen.git
-
-2. Navigate into Project Folder
+```
+3. Navigate into Project Folder
 cd digital-canteen
 
-3. Install Dependencies
+4. Install Dependencies
 npm install
 
-4. Set Environment Variables
+5. Set Environment Variables
 Create a file named .env in the project root and add:
 
 PORT=5000
