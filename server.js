@@ -13,8 +13,8 @@ app.use(express.static(__dirname + "/public"));
 
 
 mongoose.connect("mongodb://127.0.0.1:27017/ordersDB")
-    .then(() => console.log("✅ MongoDB connected"))
-    .catch(err => console.error("❌ MongoDB error:", err));
+    .then(() => console.log("MongoDB connected"))
+    .catch(err => console.error("MongoDB error:", err));
 
 const orderSchema = new mongoose.Schema({
     items: Object,
@@ -37,13 +37,13 @@ wss.on("connection", (ws) => {
 
     ws.on("close", () => {
         clients = clients.filter(client => client !== ws);
-        console.log("❌ WebSocket client disconnected");
+        console.log("WebSocket client disconnected");
     });
 });
 
 
 const server = app.listen(port, () => {
-    console.log(`🚀 Server running at http://localhost:${port}`);
+    console.log(`Server running at http://localhost:${port}`);
 });
 server.on("upgrade", (req, socket, head) => {
     wss.handleUpgrade(req, socket, head, (ws) => {
@@ -152,3 +152,4 @@ app.post('/send-email', async (req, res) => {
         res.status(500).json({ success: false, message: 'Internal server error' });
     }
 });
+
