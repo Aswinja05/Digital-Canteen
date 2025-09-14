@@ -1,4 +1,4 @@
-# 🍽️ Crowd Management System for Canteen
+#  Crowd Management System for Canteen
 
 A web-based platform built to streamline food ordering and reduce overcrowding in campus canteens. Students can pre-order food, receive pickup notifications, and avoid long queues, especially during peak hours. The system enhances efficiency for both users and canteen staff.
 
@@ -33,7 +33,7 @@ node server
 ```
 
 7. Open in Browser
-http://localhost:5000
+http://localhost:3000
 
 ---
 
